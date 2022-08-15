@@ -19,12 +19,21 @@
 }
 
 .Main-header {
+  margin-top: 2rem;
   font-size: 3rem;
+  color: #ca82ff;
   font-family: "Games", sans-serif;
+}
+
+.emoji {
+  font-size: 2rem;
 }
 
 @media screen and (max-width: 912px) {
   .Table {
     width: 100%;
+  }
+  .emoji {
+    display: none;
   }
 }

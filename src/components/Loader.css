@@ -2,6 +2,7 @@
 
 .spinner-border {
   font-size: 10rem;
+  color: #fff;
 }
 
 .loader-container {
@@ -17,5 +18,6 @@
 
 .sub-text span {
   font-family: "Games", sans-serif;
+  color: #fff;
   font-size: 2rem;
 }

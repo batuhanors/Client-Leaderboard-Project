@@ -33,7 +33,10 @@ function App() {
 
   return (
     <div className="App">
-      <p className="Main-header">Leaderboard</p>
+      <p className="Main-header">
+        <span className="emoji">🏆</span> Leaderboard{" "}
+        <span className="emoji">🏆</span>
+      </p>
       <div>
         {userList ? (
           <div className="Table">
