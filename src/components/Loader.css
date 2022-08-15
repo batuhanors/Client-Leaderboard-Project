@@ -1,0 +1,21 @@
+@import url("http://fonts.cdnfonts.com/css/games");
+
+.spinner-border {
+  font-size: 10rem;
+}
+
+.loader-container {
+  position: absolute;
+  height: calc(100% - 100px);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.sub-text span {
+  font-family: "Games", sans-serif;
+  font-size: 2rem;
+}

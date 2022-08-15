@@ -1,26 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import Table from "react-bootstrap/Table";
 
-const axios = require("axios");
-
-function BasicExample() {
-  const getUsers = async () => {
-    await axios({
-      method: "GET",
-      url: "http://localhost:3051/api/getUsers",
-      withCredentials: true,
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((err) => console.log(err));
-  };
-
-  getUsers();
-
+function UserList(props) {
   return (
     <Table striped bordered hover>
       <thead>
@@ -32,27 +13,17 @@ function BasicExample() {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>batuhanors</td>
-          <td>500</td>
-          <td>Turkey</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>bootyexpansion</td>
-          <td>496</td>
-          <td>Germany</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>fardpizza</td>
-          <td>485</td>
-          <td>Uganda</td>
-        </tr>
+        {props.players.map((player, index) => (
+          <tr key={index}>
+            <td>{index + 1}</td>
+            <td>{player.username}</td>
+            <td>{player.money}</td>
+            <td>{player.country}</td>
+          </tr>
+        ))}
       </tbody>
     </Table>
   );
 }
 
-export default BasicExample;
+export default UserList;

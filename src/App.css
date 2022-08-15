@@ -1,3 +1,5 @@
+@import url("http://fonts.cdnfonts.com/css/games");
+
 .App {
   text-align: center;
 }
@@ -14,4 +16,15 @@
 .Table {
   width: 70%;
   margin: auto;
+}
+
+.Main-header {
+  font-size: 3rem;
+  font-family: "Games", sans-serif;
+}
+
+@media screen and (max-width: 912px) {
+  .Table {
+    width: 100%;
+  }
 }
