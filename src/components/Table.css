@@ -1,5 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,500;1,100&display=swap");
+
 .custom-col {
   line-height: 3rem;
   min-height: 3rem;
   height: 3rem;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+.daily-diff {
+  font-weight: 500;
 }
