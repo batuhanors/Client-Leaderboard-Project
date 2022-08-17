@@ -32,7 +32,7 @@ function UserList(props) {
   }
 
   return (
-    <Table striped hover variant="dark">
+    <Table striped hover variant="dark" className="table">
       <thead>
         <tr className="custom-col">
           <th>Rank</th>

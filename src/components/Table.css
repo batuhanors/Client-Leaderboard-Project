@@ -12,3 +12,9 @@
 .daily-diff {
   font-weight: 500;
 }
+
+@media screen and (max-width: 512px) {
+  .custom-col {
+    font-size: 0.8rem;
+  }
+}

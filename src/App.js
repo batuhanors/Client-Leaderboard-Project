@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import UserTable from "./components/Table";
 import Loading from "./components/Loader";
+import PrizeModal from "./components/PrizeModal";
 
 const axios = require("axios");
 
@@ -39,9 +40,14 @@ function App() {
       </p>
       <div>
         {userList ? (
-          <div className="Table">
-            {" "}
-            <UserTable players={userList} />{" "}
+          <div>
+            <div className="Table">
+              {" "}
+              <UserTable players={userList} />
+            </div>
+            <div className="Modal">
+              <PrizeModal />
+            </div>
           </div>
         ) : (
           <Loading />
