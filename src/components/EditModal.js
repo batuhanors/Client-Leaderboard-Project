@@ -1,33 +1,35 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import ListGroup from "react-bootstrap/ListGroup";
 import Form from "react-bootstrap/Form";
 
 import Swal from "sweetalert2";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGear } from "@fortawesome/free-solid-svg-icons";
+
 const axios = require("axios");
 
-function PrizeModal(props) {
+function EditModal() {
   const [show, setShow] = useState(false);
+
   const [enteredUsername, setEnteredUsername] = useState("");
+  const [enteredMoney, setEnteredMoney] = useState("");
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const usernameChangeHandler = (e) => {
-    setEnteredUsername(e.target.value);
-  };
-
   const formHandler = (event) => {
     event.preventDefault();
+
     const playerData = {
       username: enteredUsername,
+      newMoneyAmount: enteredMoney,
     };
 
     axios({
       method: "POST",
-      url: "http://localhost:3051/api/calculateIndividualPrize",
+      url: "http://localhost:3051/api/updatePlayer",
       withCredentials: true,
       headers: {
         "Content-Type": "application/json",
@@ -36,58 +38,48 @@ function PrizeModal(props) {
     })
       .then((response) => {
         Swal.fire({
-          title: "Yes!",
-          text:
-            "You will get a prize since you are in top 100 " +
-            enteredUsername +
-            ". Your rank is: " +
-            response.data.rank +
-            " and your prize is: " +
-            response.data.prize +
-            " keep up and don't lose your rank!",
+          title: "Okay",
+          text: "Updated!",
           icon: "success",
-          confirmButtonText: "I won't 🦍",
+          confirmButtonText: "Hooray",
+        }).then(() => {
+          window.location.reload();
         });
       })
       .catch((err) => {
         if (err.response.status === 404) {
           Swal.fire({
-            title: "No 😥",
-            text: "Unfortunately you are not in top 100, so you won't get any prize, however the week is not finished and try to rank up and make your way to the top 100! ",
+            title: "Player does not exist",
+            text: "there is no such player",
             icon: "error",
-            confirmButtonText: "I will 🦍",
+            confirmButtonText: "Try again",
           });
         }
       });
   };
 
+  const usernameChangeHandler = (e) => {
+    setEnteredUsername(e.target.value);
+  };
+
+  const moneyChangeHandler = (e) => {
+    setEnteredMoney(e.target.value);
+  };
+
   return (
     <>
       <Button variant="light" onClick={handleShow}>
-        Click to See Prizes!
+        Edit Rank <FontAwesomeIcon icon={faGear} />
       </Button>
 
       <Modal show={show} onHide={handleClose} centered>
         <Modal.Header closeButton>
-          <Modal.Title>🥇 Top Prizes 🥇</Modal.Title>
+          <Modal.Title>Update a Player's Money</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          Current Prize Pool:{" "}
-          <span style={{ color: "#71C562" }}>{props.prizes.prizePool}</span>
-          <ListGroup variant="flush">
-            <ListGroup.Item>
-              1st Player gets: {props.prizes.firstPlayerPrize}
-            </ListGroup.Item>
-            <ListGroup.Item>
-              2nd Player gets: {props.prizes.secondPlayerPrize}
-            </ListGroup.Item>
-            <ListGroup.Item>
-              3rd Player gets: {props.prizes.thirdPlayerPrize}
-            </ListGroup.Item>
-          </ListGroup>
           <Form onSubmit={formHandler}>
             <Form.Group className="mb-3" controlId="username">
-              <Form.Label>Check your prize!</Form.Label>
+              <Form.Label>Username</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="enter a username"
@@ -95,14 +87,25 @@ function PrizeModal(props) {
                 onChange={usernameChangeHandler}
               />
             </Form.Group>
+
+            <Form.Group className="mb-3" controlId="money">
+              <Form.Label>New Money</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="enter an amount"
+                onChange={moneyChangeHandler}
+                value={enteredMoney}
+              />
+            </Form.Group>
             <Button variant="primary" type="submit">
-              Check!
+              Gimme Money 🤑
             </Button>
           </Form>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
-            Close
+            {" "}
+            Close{" "}
           </Button>
         </Modal.Footer>
       </Modal>
@@ -110,4 +113,4 @@ function PrizeModal(props) {
   );
 }
 
-export default PrizeModal;
+export default EditModal;

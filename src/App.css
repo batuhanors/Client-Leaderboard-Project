@@ -30,9 +30,15 @@
   font-size: 2rem;
 }
 
-.Modal {
+.Prize-Modal {
   position: fixed;
   right: 24px;
+  top: 32px;
+}
+
+.Edit-Modal {
+  position: fixed;
+  left: 24px;
   top: 32px;
 }
 
