@@ -4,6 +4,7 @@ import UserTable from "./components/Table";
 import Loading from "./components/Loader";
 import PrizeModal from "./components/PrizeModal";
 import EditModal from "./components/EditModal";
+import CustomTable from "./components/CustomTable";
 
 const axios = require("axios");
 
@@ -63,6 +64,7 @@ function App() {
             <div className="Table">
               {" "}
               <UserTable players={userList} />
+              <CustomTable />
             </div>
             <div className="Prize-Modal">
               <PrizeModal prizes={topPrizes} />

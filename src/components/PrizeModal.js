@@ -36,9 +36,9 @@ function PrizeModal(props) {
     })
       .then((response) => {
         Swal.fire({
-          title: "Yes!",
+          title: "You are in top 100!",
           text:
-            "You will get a prize since you are in top 100 " +
+            "Congratulations " +
             enteredUsername +
             ". Your rank is: " +
             response.data.rank +
