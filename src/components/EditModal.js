@@ -29,7 +29,7 @@ function EditModal() {
 
     axios({
       method: "POST",
-      url: "http://localhost:3051/api/updatePlayer",
+      url: "https://boiling-waters-49053.herokuapp.com/api/updatePlayer",
       withCredentials: true,
       headers: {
         "Content-Type": "application/json",
