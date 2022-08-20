@@ -122,6 +122,7 @@ function CustomTable() {
                 <Form.Control
                   type="text"
                   placeholder="enter a username"
+                  className="custom-input"
                   value={enteredUsername}
                   onChange={usernameChangeHandler}
                 />

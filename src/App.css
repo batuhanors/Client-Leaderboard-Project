@@ -20,10 +20,11 @@
 }
 
 .Main-header {
-  margin-top: 2rem;
+  margin-top: 2.5rem;
   font-size: 3rem;
   color: #ca82ff;
   font-family: "Games", sans-serif;
+  text-transform: uppercase;
 }
 
 .emoji {
@@ -44,7 +45,7 @@
 
 @media screen and (max-width: 912px) {
   .Main-header {
-    margin-top: 3.6rem;
+    margin-top: 4rem;
   }
 
   .Table {

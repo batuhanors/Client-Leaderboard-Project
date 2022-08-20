@@ -9,12 +9,32 @@
   font-weight: 300;
 }
 
+.flex {
+  align-items: center;
+  justify-content: center;
+}
+
 .daily-diff {
   font-weight: 500;
 }
 
-@media screen and (max-width: 512px) {
+.custom-input {
+  width: 25% !important;
+  margin: auto;
+}
+
+@media screen and (max-width: 560px) {
   .custom-col {
     font-size: 0.8rem;
+  }
+
+  /*  5th element of header cell which is daily rank section  */
+  .custom-col th:nth-child(5) {
+    font-size: 0.6rem;
+  }
+
+  .custom-input {
+    width: 75% !important;
+    margin: auto;
   }
 }
