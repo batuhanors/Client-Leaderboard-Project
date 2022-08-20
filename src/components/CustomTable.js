@@ -23,7 +23,7 @@ function CustomTable() {
 
     axios({
       method: "POST",
-      url: "http://localhost:3051/api/getIndividualPlayer",
+      url: "https://boiling-waters-49053.herokuapp.com/api/getIndividualPlayer",
       withCredentials: true,
       headers: {
         "Content-Type": "application/json",

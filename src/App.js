@@ -22,7 +22,7 @@ function App() {
   const getUsers = async () => {
     await axios({
       method: "GET",
-      url: "http://localhost:3051/api/getUsers",
+      url: "https://boiling-waters-49053.herokuapp.com/api/getUsers",
       withCredentials: true,
       headers: {
         "Content-Type": "application/json",
@@ -39,7 +39,7 @@ function App() {
   const getPrizes = async () => {
     await axios({
       method: "GET",
-      url: "http://localhost:3051/api/calculateMoney",
+      url: "https://boiling-waters-49053.herokuapp.com/api/calculateMoney",
       withCredentials: true,
       headers: {
         "Content-Type": "application/json",

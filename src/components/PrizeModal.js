@@ -27,7 +27,7 @@ function PrizeModal(props) {
 
     axios({
       method: "POST",
-      url: "http://localhost:3051/api/calculateIndividualPrize",
+      url: "https://boiling-waters-49053.herokuapp.com/api/calculateIndividualPrize",
       withCredentials: true,
       headers: {
         "Content-Type": "application/json",
